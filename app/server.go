@@ -8,6 +8,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
@@ -24,6 +25,14 @@ type AppConfig struct {
 
 func (server *Server) Initialize(appConfig AppConfig) {
 	fmt.Println("Welcome to " + appConfig.AppName)
+
+	var err error
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", getEnv("DB_USERNAME", ""), getEnv("DB_PASSWORD", ""), getEnv("DB_HOST",  "localhost"), getEnv("DB_PORT", "3336"), getEnv("DB_NAME", ""))
+	server.DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+
+	if err != nil {
+		panic("Failed on connecting to the database server")
+	}
 
 	server.Router = mux.NewRouter()
 	server.InitializeRoutes()
