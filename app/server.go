@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 	"gorm.io/gorm"
 )
 
@@ -36,9 +38,14 @@ func Run() {
 	var server    = Server{}
 	var appConfig = AppConfig{}
 
-	appConfig.AppName = "GoShopWeb"
-	appConfig.AppEnv  = "development"
-	appConfig.AppPort = "9999"
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalf("Error on loading .env file")
+	}
+
+	appConfig.AppName = os.Getenv("APP_NAME")
+	appConfig.AppEnv  = os.Getenv("APP_ENV")
+	appConfig.AppPort = os.Getenv("APP_PORT")
 
 	server.Initialize(appConfig)
 	server.Run(":" + appConfig.AppPort)
