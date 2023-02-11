@@ -18,6 +18,7 @@ func (server *Server) Initialize() {
 	fmt.Println("Welcome to GoShop")
 
 	server.Router = mux.NewRouter()
+	server.InitializeRoutes()
 }
 
 func (server *Server) Run(addr string) {
