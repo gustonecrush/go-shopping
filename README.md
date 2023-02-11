@@ -1,5 +1,8 @@
 # DOCUMENTATION
 
+## ABOUT
+A simple e-commerce website that displays product lists, details, and can run payment gateways to process purchase transactions.  Equipped with an administrator page that can be used to manage products, orders, and reports
+
 ## FEATURES
 - Homepage
 - Register, Login, Profile User
