@@ -29,5 +29,5 @@ func Run() {
 	var server = Server{}
 
 	server.Initialize()
-	server.Run("9000")
+	server.Run(":8080")
 }
