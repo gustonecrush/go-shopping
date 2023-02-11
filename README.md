@@ -1,5 +1,23 @@
 # DOCUMENTATION
 
+## FEATURES
+- Homepage
+- Register, Login, Profile User
+- Products Page
+- Single Product Page
+- Shopping Cart
+- Checkout
+  - Shipping Cost Calculation
+  - Payment Gateway
+- Order History
+- Admin Pannel
+  - Dashboard
+  - Manage Products
+  - Manage Orders
+  - Manage Users
+  - Reports
+  - Configuration
+
 ## LIBRARY INSTALLED
 
 - Go Mux, used to set routing `go get github.com/gorilla/mux`
