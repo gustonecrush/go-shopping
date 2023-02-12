@@ -25,4 +25,5 @@ type Product struct {
 	UpdatedAt        time.Time
 	DeletedAt		 gorm.DeletedAt
 	ProductImages    []ProductImage
+	Categories       []Category
 }
