@@ -2,8 +2,6 @@ package models
 
 import (
 	"time"
-
-	"github.com/shopspring/decimal"
 )
 
 type ProductImage struct {
@@ -14,7 +12,7 @@ type ProductImage struct {
 	ExtraLarge		 string `gorm:"type:text"`
 	Large            string `gorm:"type:text"`
 	Medium	         string `gorm:"type:text"`
-	Small			 int
+	Small			 string `gorm:"type:text"`
 	CreatedAt        time.Time
 	UpdatedAt        time.Time
 }

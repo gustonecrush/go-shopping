@@ -2,9 +2,6 @@ package models
 
 import (
 	"time"
-
-	"github.com/shopspring/decimal"
-	"gorm.io/gorm"
 )
 
 type Section struct {
