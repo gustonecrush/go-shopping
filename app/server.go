@@ -61,6 +61,15 @@ func (server *Server) initializeDB(dbConfig DBConfig) {
 		panic("Failed on connecting to the database server")
 	}
 
+	for _, model := range RegisterModels() {
+		err = server.DB.Debug().AutoMigrate(model.Model)
+
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	fmt.Println("Database migration successfully")
 }
 
 func getEnv(key, fallback string) string {
